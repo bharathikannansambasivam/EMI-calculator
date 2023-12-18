@@ -11,6 +11,9 @@ function calculateEMI() {
   var resultContainer = document.getElementById("result");
   resultContainer.innerHTML = "EMI: INR " + emi.toFixed(2) + " per month";
 
+  var tableBody = document.getElementById("table-body");
+  tableBody.innerHTML = ""; // Clear existing table rows
+
   if (
     isNaN(loanAmount) ||
     isNaN(interestRate) ||
@@ -23,6 +26,27 @@ function calculateEMI() {
     calculator_container.style.color = "red";
   } else {
     calculator_container.style.color = "black";
+
+    var remainingAmount = loanAmount;
+    for (let i = 1; i <= loanTerm; i++) {
+      var newRow = tableBody.insertRow();
+      var monthCell = newRow.insertCell(0);
+      var loanAmountCell = newRow.insertCell(1);
+      var interestCell = newRow.insertCell(2);
+      var principalCell = newRow.insertCell(3);
+      var remainingCell = newRow.insertCell(4);
+
+      var interestPayment = remainingAmount * monthlyInterestRate;
+      var principalPayment = emi - interestPayment;
+
+      monthCell.innerHTML = i;
+      loanAmountCell.innerHTML = "₹ " + remainingAmount.toFixed(0);
+      interestCell.innerHTML = "₹ " + interestPayment.toFixed(0);
+      principalCell.innerHTML = "₹ " + principalPayment.toFixed(0);
+      remainingCell.innerHTML =
+        "₹ " + (remainingAmount - principalPayment).toFixed(0);
+
+      remainingAmount = remainingAmount - principalPayment;
+    }
   }
 }
-s;

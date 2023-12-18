@@ -40,7 +40,26 @@
       <button onclick="calculateEMI()">Calculate EMI</button>
       <div id="result"></div>
     </div>
-
+    <div id="table">
+      <table class="border border-">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Loan Amount</th>
+            <th>Interest</th>
+            <th>Principal</th>
+            <th>Remaining Amount</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Table rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+    <div id="chart-container">
+      <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
+    </div>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>
