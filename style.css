@@ -12,6 +12,7 @@ body {
 }
 
 .calculator-container {
+  margin-top: 5%;
     background-color: #fff;
     box-shadow: 0 10px 20px rgb(123, 120, 120);
     padding: 20px;
@@ -94,5 +95,9 @@ input::-webkit-inner-spin-button {
   
   tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+  }
+
+  #table {
+    display: none;
   }
   
